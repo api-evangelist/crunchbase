@@ -1,0 +1,104 @@
+{
+    "name": "CrunchBase",
+    "description": "Crunchbase is the leading platform to discover innovative companies and the people behind them.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/173-crunchbase.jpg",
+    "tags": [
+        "api provider",
+        "business",
+        "change log example",
+        "getting started example",
+        "have api",
+        "silicon valley"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/crunchbase\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "CrunchBase",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/173-crunchbase.jpg",
+            "humanURL": "http:\/\/crunchbase.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/crunchbase-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "http:\/\/api.crunchbase.com"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.crunchbase.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/crunchbaseblog.golaun.ch\/feed\/"
+        },
+        {
+            "type": "Change Logs",
+            "url": "https:\/\/data.crunchbase.com\/docs\/known-bugs"
+        },
+        {
+            "type": "Code",
+            "url": "https:\/\/data.crunchbase.com\/docs\/language-specific-libraries"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/crunchbase"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/meridian-general"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/data.crunchbase.com\/"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/data.crunchbase.com\/v3\/docs\/"
+        },
+        {
+            "type": "Excel",
+            "url": "https:\/\/data.crunchbase.com\/v3\/page\/crunchbase-data-exports"
+        },
+        {
+            "type": "Getting Started",
+            "url": "https:\/\/data.crunchbase.com\/docs\/getting-started-1"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/crunchbase"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/data.crunchbase.com\/v3\/page\/pricing"
+        },
+        {
+            "type": "Support",
+            "url": "https:\/\/data.crunchbase.com\/v3\/docs\/support"
+        },
+        {
+            "type": "Terms Of Service",
+            "url": "https:\/\/data.crunchbase.com\/docs\/license"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/crunchbase"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/crunchbase.com\/"
+        }
+    ]
+}

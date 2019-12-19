@@ -1,0 +1,16 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v3",
+        "title": "CrunchBase",
+        "description": "The CrunchBase API is a (relatively) straightforward REST service that allows developers to access data in the Business Graph.",
+        "termsOfService": "https:\/\/data.crunchbase.com\/v3\/page\/accessing-the-dataset"
+    },
+    "servers": [
+        "httpsapi.crunchbase.com\/v\/3"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": []
+    }
+}

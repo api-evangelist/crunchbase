@@ -1,16 +1,14 @@
 aid: crunchbase
-url: 
-  https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml
 apis:
   - aid: crunchbase:crunchbase-api
     name: Crunchbase API
     tags:
       - Business Data
-      - Startups
-      - Investments
       - Funding
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Investments
+      - Startups
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.crunchbase.com
     humanURL: https://data.crunchbase.com/docs
     properties:
@@ -33,12 +31,11 @@ apis:
 name: Crunchbase
 tags:
   - Business Data
-  - Startups
-  - Investments
   - Funding
+  - Investments
+  - Startups
 type: Index
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
   - url: https://www.crunchbase.com/

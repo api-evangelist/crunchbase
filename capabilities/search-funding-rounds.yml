@@ -1,0 +1,29 @@
+name: search-funding-rounds
+description: >-
+  Search Crunchbase funding rounds across organizations to find rounds matching
+  a structured query (e.g. by investment type, date, geography, lead investor).
+api: crunchbase
+operationId: searchFundingRounds
+method: POST
+path: /searches/funding_rounds
+inputs:
+  - name: query
+    in: body
+    required: true
+    description: Structured query with funding-round-specific filters.
+  - name: field_ids
+    in: body
+    required: false
+  - name: order
+    in: body
+    required: false
+  - name: limit
+    in: body
+    required: false
+outputs:
+  - name: entities
+    description: Page of matching funding rounds.
+  - name: count
+    description: Total matching funding rounds.
+sideEffects: read-only
+authentication: api-key

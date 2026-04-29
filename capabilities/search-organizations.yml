@@ -1,0 +1,36 @@
+name: search-organizations
+description: >-
+  Search Crunchbase organizations using a structured query with filters,
+  ordering, and field selection. Returns a paged result.
+api: crunchbase
+operationId: searchOrganizations
+method: POST
+path: /searches/organizations
+inputs:
+  - name: query
+    in: body
+    required: true
+    description: Structured search query with field, operator, and value clauses.
+  - name: field_ids
+    in: body
+    required: false
+    description: Fields to include for each returned entity.
+  - name: order
+    in: body
+    required: false
+    description: Sort order with field_id and asc/desc direction.
+  - name: limit
+    in: body
+    required: false
+    description: Maximum results per page (default 50, max 1000).
+  - name: after_id
+    in: body
+    required: false
+    description: Pagination cursor.
+outputs:
+  - name: entities
+    description: Page of matching organizations with selected fields.
+  - name: count
+    description: Total matching entities for the query.
+sideEffects: read-only
+authentication: api-key

@@ -1,0 +1,22 @@
+name: lookup-organization
+description: >-
+  Look up a single Crunchbase organization (company, investor, or school) by
+  Crunchbase UUID or permalink and return its core profile fields.
+api: crunchbase
+operationId: getOrganization
+method: GET
+path: /entities/organizations/{entity_id}
+inputs:
+  - name: entity_id
+    in: path
+    required: true
+    description: Crunchbase UUID or permalink of the organization.
+  - name: field_ids
+    in: query
+    required: false
+    description: Comma-separated list of fields to include in the response.
+outputs:
+  - name: organization
+    description: The organization entity matching the requested identifier.
+sideEffects: read-only
+authentication: api-key

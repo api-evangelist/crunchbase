@@ -1,0 +1,54 @@
+extends: [[spectral:oas, all]]
+rules:
+  crunchbase-info-contact:
+    description: Crunchbase API specs must declare a contact.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  crunchbase-server-https:
+    description: Crunchbase API servers must use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  crunchbase-api-version-path:
+    description: Crunchbase server URL must include a versioned path (e.g. /api/v4).
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '/api/v[0-9]+'
+  crunchbase-api-key-auth:
+    description: Crunchbase endpoints must declare API key security.
+    given: $.components.securitySchemes
+    severity: error
+    then:
+      function: truthy
+  crunchbase-operation-tag:
+    description: Every Crunchbase operation must have at least one tag.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+  crunchbase-operation-id-camel:
+    description: Crunchbase operation IDs should be camelCase.
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+  crunchbase-entity-id-param:
+    description: Entity lookup paths should use entity_id path parameter.
+    given: "$.paths[?(@property.match(/^\\/entities\\//))][get].parameters[*].name"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(entity_id|field_ids|card_ids)$'

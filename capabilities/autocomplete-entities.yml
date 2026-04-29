@@ -1,0 +1,26 @@
+name: autocomplete-entities
+description: >-
+  Provide type-ahead suggestions for Crunchbase entities (organizations,
+  people, etc.) given a partial query string.
+api: crunchbase
+operationId: autocomplete
+method: GET
+path: /autocompletes
+inputs:
+  - name: query
+    in: query
+    required: true
+    description: Partial text to match against entity names.
+  - name: collection_ids
+    in: query
+    required: false
+    description: Comma-separated entity collections to limit suggestions.
+  - name: limit
+    in: query
+    required: false
+    description: Maximum suggestions to return (default 10, max 25).
+outputs:
+  - name: entities
+    description: Ranked list of matching entity identifiers and short descriptions.
+sideEffects: read-only
+authentication: api-key

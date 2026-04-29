@@ -1,0 +1,32 @@
+name: Crunchbase Vocabulary
+description: >-
+  Controlled terms and concepts used throughout the Crunchbase API for
+  describing organizations, people, funding rounds, acquisitions, IPOs,
+  investors, and search faceting.
+terms:
+  - term: Organization
+    definition: A company, investor, school, or other named entity tracked by Crunchbase.
+  - term: Person
+    definition: A founder, executive, investor, or notable individual associated with one or more organizations.
+  - term: FundingRound
+    definition: An equity, debt, or grant funding event raised by an organization.
+  - term: InvestmentType
+    definition: The category of a funding round (seed, series_a, series_b, debt_financing, ipo, etc.).
+  - term: Acquisition
+    definition: An M&A event where one organization acquires another.
+  - term: Ipo
+    definition: An initial public offering event where a private organization goes public.
+  - term: Permalink
+    definition: A stable, human-readable URL slug identifying a Crunchbase entity.
+  - term: Identifier
+    definition: A composite reference object containing UUID and permalink for any entity.
+  - term: CategoryGroup
+    definition: A high-level industry group used to classify organizations (e.g. SaaS, FinTech, Health Care).
+  - term: MoneyAmount
+    definition: A monetary value object containing native value, currency, and value_usd.
+  - term: SearchQuery
+    definition: A structured query object with field, operator, and values used in /searches endpoints.
+  - term: Autocomplete
+    definition: Type-ahead lookup that returns identifier and short description matches for a query string.
+  - term: DeletedEntity
+    definition: Record indicating that a previously published entity has been removed; used for incremental sync.

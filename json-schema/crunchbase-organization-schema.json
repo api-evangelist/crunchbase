@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/json-schema/crunchbase-organization-schema.json",
+  "title": "CrunchbaseOrganization",
+  "description": "Schema for a Crunchbase organization (company, investor, or school) entity.",
+  "type": "object",
+  "required": ["uuid", "name"],
+  "properties": {
+    "uuid": {"type": "string", "format": "uuid"},
+    "permalink": {"type": "string"},
+    "name": {"type": "string"},
+    "short_description": {"type": "string"},
+    "description": {"type": "string"},
+    "website_url": {"type": "string", "format": "uri"},
+    "linkedin": {"type": "string", "format": "uri"},
+    "twitter": {"type": "string", "format": "uri"},
+    "founded_on": {"type": "string", "format": "date"},
+    "closed_on": {"type": "string", "format": "date"},
+    "operating_status": {"type": "string", "enum": ["active", "closed"]},
+    "num_employees_enum": {"type": "string"},
+    "ipo_status": {"type": "string", "enum": ["private", "public", "delisted", "was_acquired"]},
+    "category_groups": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "categories": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "location_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {"type": "string", "format": "uuid"},
+          "value": {"type": "string"},
+          "permalink": {"type": "string"}
+        }
+      }
+    },
+    "funding_total": {
+      "type": "object",
+      "properties": {
+        "value": {"type": "number"},
+        "currency": {"type": "string"},
+        "value_usd": {"type": "number"}
+      }
+    },
+    "last_funding_at": {"type": "string", "format": "date"},
+    "last_funding_type": {"type": "string"},
+    "num_funding_rounds": {"type": "integer"},
+    "num_investors": {"type": "integer"},
+    "num_acquisitions": {"type": "integer"},
+    "num_investments": {"type": "integer"}
+  }
+}

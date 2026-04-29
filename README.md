@@ -1,64 +1,59 @@
 # Crunchbase (crunchbase)
 
-Crunchbase (https://www.crunchbase.com/) is a business data platform tracking companies, investments, and funding across the global startup ecosystem. It provides comprehensive profiles of organizations, founders, investors, funding rounds, acquisitions, and IPOs, and is widely used for market intelligence, competitive analysis, investor research, and startup discovery. Crunchbase offers a REST API that gives developers programmatic access to its full dataset.
+Crunchbase is a business data platform tracking companies, investors, funding rounds, acquisitions, and IPOs across the global startup and private market ecosystem. The Crunchbase v4 REST API provides programmatic access to 600+ endpoints powering customer-facing products, workflow enrichment, and AI training data.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml)
+**APIs.yml URL:** https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml
 
 ## Scope
 
 - **Type:** Index
-- **Position:** Consuming
 - **Access:** 3rd-Party
+- **x-type:** company
 
-## Tags:
+## Tags
 
- - Business Data, Startups, Investments, Funding
-
-## Timestamps
-
-- **Created:** 2026-03-24
-- **Modified:** 2026-03-24
+Business Data, Funding, Investments, Startups, Private Markets, Firmographics
 
 ## APIs
 
 ### Crunchbase API
 
-The Crunchbase API provides programmatic access to Crunchbase's comprehensive business data platform, covering companies, people, investors, funding rounds, acquisitions, and IPOs. Developers can search and retrieve detailed profiles for organizations and individuals, query investment data including funding rounds and investors, and access information about mergers, acquisitions, and exits. The API supports filtering, sorting, and field selection, and uses API key-based authentication. It is widely used for market intelligence, competitive analysis, investor research, and startup ecosystem analytics.
+The Crunchbase v4 REST API provides programmatic access to Crunchbase's business data covering organizations, people, investors, funding rounds, acquisitions, and IPOs. Supports entity lookups, structured search, autocomplete, and deleted entity feeds.
 
-**Human URL:** [https://data.crunchbase.com/docs](https://data.crunchbase.com/docs)
+- Base URL: https://api.crunchbase.com/api/v4
+- Documentation: https://data.crunchbase.com/docs
+- Authentication: API key in `X-cb-user-key` header
+- OpenAPI: [openapi/crunchbase-openapi.yml](openapi/crunchbase-openapi.yml)
 
-#### Tags:
+## Features
 
- - Business Data, Startups, Investments, Funding
+- Entity lookups for organizations, people, funding rounds, acquisitions, and IPOs
+- Structured POST-based search with field/operator/value clauses
+- Type-ahead autocomplete across collections
+- Deleted entity feeds for incremental sync
+- Field and card selection for narrow responses
+- 600+ endpoints covering round-by-round funding data and firmographics
+- API key authentication
+- Per-key rate limiting
 
-#### Properties
+## Use Cases
 
-- [Documentation](https://data.crunchbase.com/docs)
-- [Authentication](https://data.crunchbase.com/docs/authentication)
-- [RateLimits](https://data.crunchbase.com/docs/rate-limiting)
-- [ChangeLog](https://data.crunchbase.com/docs/changelog)
+- Market intelligence and competitor tracking
+- Investor research (VC, PE, family office)
+- Sales intelligence and account-based marketing
+- Startup and corp-dev discovery
+- AI model training and evaluation
+- Customer-facing dashboards and signals
 
-## Common Properties
+## Artifacts
 
-- [Website](https://www.crunchbase.com/)
-- [Documentation](https://data.crunchbase.com/docs)
-- [SignUp](https://www.crunchbase.com/register)
-- [Login](https://www.crunchbase.com/login)
-- [Pricing](https://www.crunchbase.com/pricing)
-- [Authentication](https://data.crunchbase.com/docs/authentication)
-- [RateLimits](https://data.crunchbase.com/docs/rate-limiting)
-- [ChangeLog](https://data.crunchbase.com/docs/changelog)
-- [Support](https://support.crunchbase.com/)
-- [TermsOfService](https://www.crunchbase.com/terms-of-service)
-- [PrivacyPolicy](https://www.crunchbase.com/privacy-policy)
-- [Blog](https://www.crunchbase.com/blog)
-- [X](https://twitter.com/crunchbase)
-- [LinkedIn](https://www.linkedin.com/company/crunchbase)
-- [Facebook](https://www.facebook.com/crunchbase)
-- [GitHub](https://github.com/crunchbase)
+- OpenAPI: [openapi/crunchbase-openapi.yml](openapi/crunchbase-openapi.yml)
+- JSON Schema: [json-schema/crunchbase-organization-schema.json](json-schema/crunchbase-organization-schema.json)
+- JSON-LD Context: [json-ld/crunchbase-context.jsonld](json-ld/crunchbase-context.jsonld)
+- Vocabulary: [vocabulary/crunchbase-vocabulary.yml](vocabulary/crunchbase-vocabulary.yml)
+- Spectral Rules: [rules/crunchbase-rules.yml](rules/crunchbase-rules.yml)
+- Naftiko Capabilities: [capabilities/](capabilities/)
 
 ## Maintainers
 
-**FN:** API Evangelist
-
-**Email:** info@apievangelist.com
+- Kin Lane (kin@apievangelist.com)

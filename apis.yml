@@ -1,6 +1,6 @@
 aid: crunchbase
 url: https://raw.githubusercontent.com/api-evangelist/crunchbase/refs/heads/main/apis.yml
-x-type: company
+kind: company
 name: Crunchbase
 description: >-
   Crunchbase is a business data platform tracking companies, investors, funding

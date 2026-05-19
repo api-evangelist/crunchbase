@@ -1,0 +1,200 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Crunchbase API — Entities
+  description: 'Crunchbase API — Entities. 5 operations. Lead operation: Get acquisition. Self-contained Naftiko capability
+    covering one Crunchbase business surface.'
+  tags:
+  - Crunchbase
+  - Entities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CRUNCHBASE_API_KEY: CRUNCHBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crunchbase-entities
+    baseUri: https://api.crunchbase.com/api/v4
+    description: Crunchbase API — Entities business capability. Self-contained, no shared references.
+    resources:
+    - name: entities-acquisitions-entity_id
+      path: /entities/acquisitions/{entity_id}
+      operations:
+      - name: getacquisition
+        method: GET
+        description: Get acquisition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: entities-funding_rounds-entity_id
+      path: /entities/funding_rounds/{entity_id}
+      operations:
+      - name: getfundinground
+        method: GET
+        description: Get funding round
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: entities-ipos-entity_id
+      path: /entities/ipos/{entity_id}
+      operations:
+      - name: getipo
+        method: GET
+        description: Get IPO
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: entities-organizations-entity_id
+      path: /entities/organizations/{entity_id}
+      operations:
+      - name: getorganization
+        method: GET
+        description: Get organization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: entities-people-entity_id
+      path: /entities/people/{entity_id}
+      operations:
+      - name: getperson
+        method: GET
+        description: Get person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-cb-user-key
+      value: '{{env.CRUNCHBASE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: crunchbase-entities-rest
+    port: 8080
+    description: REST adapter for Crunchbase API — Entities. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/entities/acquisitions/{entity-id}
+      name: entities-acquisitions-entity-id
+      description: REST surface for entities-acquisitions-entity_id.
+      operations:
+      - method: GET
+        name: getacquisition
+        description: Get acquisition
+        call: crunchbase-entities.getacquisition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entities/funding-rounds/{entity-id}
+      name: entities-funding-rounds-entity-id
+      description: REST surface for entities-funding_rounds-entity_id.
+      operations:
+      - method: GET
+        name: getfundinground
+        description: Get funding round
+        call: crunchbase-entities.getfundinground
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entities/ipos/{entity-id}
+      name: entities-ipos-entity-id
+      description: REST surface for entities-ipos-entity_id.
+      operations:
+      - method: GET
+        name: getipo
+        description: Get IPO
+        call: crunchbase-entities.getipo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entities/organizations/{entity-id}
+      name: entities-organizations-entity-id
+      description: REST surface for entities-organizations-entity_id.
+      operations:
+      - method: GET
+        name: getorganization
+        description: Get organization
+        call: crunchbase-entities.getorganization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entities/people/{entity-id}
+      name: entities-people-entity-id
+      description: REST surface for entities-people-entity_id.
+      operations:
+      - method: GET
+        name: getperson
+        description: Get person
+        call: crunchbase-entities.getperson
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crunchbase-entities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Crunchbase API — Entities. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-acquisition
+      description: Get acquisition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-entities.getacquisition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-funding-round
+      description: Get funding round
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-entities.getfundinground
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-ipo
+      description: Get IPO
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-entities.getipo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization
+      description: Get organization
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-entities.getorganization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-person
+      description: Get person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-entities.getperson
+      outputParameters:
+      - type: object
+        mapping: $.

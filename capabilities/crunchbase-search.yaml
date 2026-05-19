@@ -1,0 +1,166 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Crunchbase API — Search
+  description: 'Crunchbase API — Search. 3 operations. Lead operation: Search funding rounds. Self-contained Naftiko capability
+    covering one Crunchbase business surface.'
+  tags:
+  - Crunchbase
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CRUNCHBASE_API_KEY: CRUNCHBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crunchbase-search
+    baseUri: https://api.crunchbase.com/api/v4
+    description: Crunchbase API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: searches-funding_rounds
+      path: /searches/funding_rounds
+      operations:
+      - name: searchfundingrounds
+        method: POST
+        description: Search funding rounds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: searches-organizations
+      path: /searches/organizations
+      operations:
+      - name: searchorganizations
+        method: POST
+        description: Search organizations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: searches-people
+      path: /searches/people
+      operations:
+      - name: searchpeople
+        method: POST
+        description: Search people
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: X-cb-user-key
+      value: '{{env.CRUNCHBASE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: crunchbase-search-rest
+    port: 8080
+    description: REST adapter for Crunchbase API — Search. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/searches/funding-rounds
+      name: searches-funding-rounds
+      description: REST surface for searches-funding_rounds.
+      operations:
+      - method: POST
+        name: searchfundingrounds
+        description: Search funding rounds
+        call: crunchbase-search.searchfundingrounds
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/searches/organizations
+      name: searches-organizations
+      description: REST surface for searches-organizations.
+      operations:
+      - method: POST
+        name: searchorganizations
+        description: Search organizations
+        call: crunchbase-search.searchorganizations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/searches/people
+      name: searches-people
+      description: REST surface for searches-people.
+      operations:
+      - method: POST
+        name: searchpeople
+        description: Search people
+        call: crunchbase-search.searchpeople
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crunchbase-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Crunchbase API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-funding-rounds
+      description: Search funding rounds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: crunchbase-search.searchfundingrounds
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-organizations
+      description: Search organizations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: crunchbase-search.searchorganizations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-people
+      description: Search people
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: crunchbase-search.searchpeople
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

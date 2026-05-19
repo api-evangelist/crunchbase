@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Crunchbase API — Deletes
+  description: 'Crunchbase API — Deletes. 1 operations. Lead operation: List deleted entities. Self-contained Naftiko capability
+    covering one Crunchbase business surface.'
+  tags:
+  - Crunchbase
+  - Deletes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CRUNCHBASE_API_KEY: CRUNCHBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crunchbase-deletes
+    baseUri: https://api.crunchbase.com/api/v4
+    description: Crunchbase API — Deletes business capability. Self-contained, no shared references.
+    resources:
+    - name: deletes-collection_id
+      path: /deletes/{collection_id}
+      operations:
+      - name: listdeletes
+        method: GET
+        description: List deleted entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: collection_id
+          in: path
+          type: string
+          required: true
+        - name: after_id
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-cb-user-key
+      value: '{{env.CRUNCHBASE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: crunchbase-deletes-rest
+    port: 8080
+    description: REST adapter for Crunchbase API — Deletes. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/deletes/{collection-id}
+      name: deletes-collection-id
+      description: REST surface for deletes-collection_id.
+      operations:
+      - method: GET
+        name: listdeletes
+        description: List deleted entities
+        call: crunchbase-deletes.listdeletes
+        with:
+          collection_id: rest.collection_id
+          after_id: rest.after_id
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crunchbase-deletes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Crunchbase API — Deletes. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-deleted-entities
+      description: List deleted entities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-deletes.listdeletes
+      with:
+        collection_id: tools.collection_id
+        after_id: tools.after_id
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

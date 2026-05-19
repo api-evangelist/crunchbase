@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Crunchbase API — Autocomplete
+  description: 'Crunchbase API — Autocomplete. 1 operations. Lead operation: Autocomplete entities. Self-contained Naftiko
+    capability covering one Crunchbase business surface.'
+  tags:
+  - Crunchbase
+  - Autocomplete
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CRUNCHBASE_API_KEY: CRUNCHBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crunchbase-autocomplete
+    baseUri: https://api.crunchbase.com/api/v4
+    description: Crunchbase API — Autocomplete business capability. Self-contained, no shared references.
+    resources:
+    - name: autocompletes
+      path: /autocompletes
+      operations:
+      - name: autocomplete
+        method: GET
+        description: Autocomplete entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+        - name: collection_ids
+          in: query
+          type: string
+          description: Comma-separated entity collections (organizations, people, etc.)
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-cb-user-key
+      value: '{{env.CRUNCHBASE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: crunchbase-autocomplete-rest
+    port: 8080
+    description: REST adapter for Crunchbase API — Autocomplete. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/autocompletes
+      name: autocompletes
+      description: REST surface for autocompletes.
+      operations:
+      - method: GET
+        name: autocomplete
+        description: Autocomplete entities
+        call: crunchbase-autocomplete.autocomplete
+        with:
+          query: rest.query
+          collection_ids: rest.collection_ids
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crunchbase-autocomplete-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Crunchbase API — Autocomplete. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: autocomplete-entities
+      description: Autocomplete entities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crunchbase-autocomplete.autocomplete
+      with:
+        query: tools.query
+        collection_ids: tools.collection_ids
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

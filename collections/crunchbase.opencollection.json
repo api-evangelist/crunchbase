@@ -1,0 +1,277 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Crunchbase API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-cb-user-key",
+      "value": "{{X-cb-user-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Entities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/entities/organizations/:entity_id",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Crunchbase UUID or permalink for the entity."
+              },
+              {
+                "name": "field_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field identifiers to include in the response."
+              },
+              {
+                "name": "card_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related card identifiers (e.g. founders, investments)."
+              }
+            ]
+          },
+          "docs": "Retrieve an organization (company, investor, school) by Crunchbase UUID or permalink."
+        },
+        {
+          "info": {
+            "name": "Get person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/entities/people/:entity_id",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Crunchbase UUID or permalink for the entity."
+              },
+              {
+                "name": "field_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field identifiers to include in the response."
+              },
+              {
+                "name": "card_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related card identifiers (e.g. founders, investments)."
+              }
+            ]
+          },
+          "docs": "Retrieve a person entity by Crunchbase UUID or permalink."
+        },
+        {
+          "info": {
+            "name": "Get funding round",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/entities/funding_rounds/:entity_id",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Crunchbase UUID or permalink for the entity."
+              },
+              {
+                "name": "field_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field identifiers to include in the response."
+              }
+            ]
+          },
+          "docs": "Get funding round"
+        },
+        {
+          "info": {
+            "name": "Get acquisition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/entities/acquisitions/:entity_id",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Crunchbase UUID or permalink for the entity."
+              }
+            ]
+          },
+          "docs": "Get acquisition"
+        },
+        {
+          "info": {
+            "name": "Get IPO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/entities/ipos/:entity_id",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Crunchbase UUID or permalink for the entity."
+              }
+            ]
+          },
+          "docs": "Get IPO"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/organizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search organizations"
+        },
+        {
+          "info": {
+            "name": "Search people",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/people",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search people"
+        },
+        {
+          "info": {
+            "name": "Search funding rounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/funding_rounds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search funding rounds"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Autocomplete",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autocomplete entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/autocompletes",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collection_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated entity collections (organizations, people, etc.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Autocomplete entities"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deletes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deleted entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/deletes/:collection_id",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "after_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deleted entities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1194 @@
+{
+  "item": [
+    {
+      "id": "9e406bd6-9d63-4823-983b-294b7f1ef562",
+      "name": "Entities",
+      "description": {
+        "content": "Entity lookup endpoints for organizations, people, funding rounds, acquisitions, and IPOs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2df0a45b-de0f-48aa-b5a2-7f5601561a14",
+          "name": "Get organization",
+          "request": {
+            "name": "Get organization",
+            "description": {
+              "content": "Retrieve an organization (company, investor, school) by Crunchbase UUID or permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entities",
+                "organizations",
+                ":entity_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field identifiers to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "card_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related card identifiers (e.g. founders, investments)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_id",
+                  "description": "(Required) Crunchbase UUID or permalink for the entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf61d7e8-19a9-409c-b264-3965a17f9f48",
+              "name": "Organization entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "organizations",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "card_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"b73e60f6-a62c-f796-676b-8d37d70571d6\",\n  \"identifier\": {\n    \"uuid\": \"0807c2dd-040f-1ae9-22ef-634d47d88622\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"name\": \"string\",\n  \"short_description\": \"string\",\n  \"website_url\": \"https://NmfSJtMaVycbsayU.ldycNNyYo\",\n  \"founded_on\": \"1956-04-23\",\n  \"location_identifiers\": [\n    {\n      \"uuid\": \"e9c590ce-f6fe-29e1-df03-51eb4c5a6715\",\n      \"permalink\": \"string\",\n      \"value\": \"string\",\n      \"entity_def_id\": \"string\"\n    },\n    {\n      \"uuid\": \"b288f405-528f-0541-6905-8928c0ff261b\",\n      \"permalink\": \"string\",\n      \"value\": \"string\",\n      \"entity_def_id\": \"string\"\n    }\n  ],\n  \"category_groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"funding_total\": {\n    \"value\": 1901.4819824809936,\n    \"currency\": \"USD\",\n    \"value_usd\": 5541.743050799476\n  },\n  \"last_funding_type\": \"string\",\n  \"num_employees_enum\": \"string\",\n  \"ipo_status\": \"delisted\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47701e83-d39c-4936-8870-9b66192aaaa3",
+              "name": "Entity not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "organizations",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "card_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb8636e3-5a5d-47f6-8246-d514df26c1a3",
+          "name": "Get person",
+          "request": {
+            "name": "Get person",
+            "description": {
+              "content": "Retrieve a person entity by Crunchbase UUID or permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entities",
+                "people",
+                ":entity_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field identifiers to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "card_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related card identifiers (e.g. founders, investments)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_id",
+                  "description": "(Required) Crunchbase UUID or permalink for the entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3397611-e6f9-49fd-a53a-b6cbf76c2d77",
+              "name": "Person entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "people",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "card_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"ffb56c7e-ccb7-661f-ec99-601d3e36837a\",\n  \"identifier\": {\n    \"uuid\": \"1d40aa9d-ba1f-ffaf-282c-56a17c584838\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"primary_organization\": {\n    \"uuid\": \"592aa66a-7fc3-7707-77f2-370133f19f66\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"primary_job_title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13ce954e-fa1e-4ea8-8998-cab695b6fd3b",
+          "name": "Get funding round",
+          "request": {
+            "name": "Get funding round",
+            "description": {},
+            "url": {
+              "path": [
+                "entities",
+                "funding_rounds",
+                ":entity_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field identifiers to include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_id",
+                  "description": "(Required) Crunchbase UUID or permalink for the entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "940483a8-1342-4ca3-b103-d4c49380861e",
+              "name": "Funding round entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "funding_rounds",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"749a83e7-a050-213d-9915-edfe73f56f6f\",\n  \"identifier\": {\n    \"uuid\": \"0cd9157a-ed3a-f00f-58e5-597c96270efa\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"funded_organization_identifier\": {\n    \"uuid\": \"9626bcc6-0983-c0be-73ae-c9ea4160acf6\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"investment_type\": \"series_a\",\n  \"announced_on\": \"1963-11-23\",\n  \"money_raised\": {\n    \"value\": 4259.637081351245,\n    \"currency\": \"USD\",\n    \"value_usd\": 6024.213109504437\n  },\n  \"num_investors\": 8754,\n  \"lead_investor_identifiers\": [\n    {\n      \"uuid\": \"6ad0bb8a-43eb-f87f-79db-d4f5e231b0d3\",\n      \"permalink\": \"string\",\n      \"value\": \"string\",\n      \"entity_def_id\": \"string\"\n    },\n    {\n      \"uuid\": \"87a9eaa0-0162-b017-6185-ffad9e212c12\",\n      \"permalink\": \"string\",\n      \"value\": \"string\",\n      \"entity_def_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "976ec43d-c6e9-49be-809a-0da9939f4c4b",
+          "name": "Get acquisition",
+          "request": {
+            "name": "Get acquisition",
+            "description": {},
+            "url": {
+              "path": [
+                "entities",
+                "acquisitions",
+                ":entity_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_id",
+                  "description": "(Required) Crunchbase UUID or permalink for the entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a936580a-4272-4f8b-8176-24db50bc1c54",
+              "name": "Acquisition entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "acquisitions",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"d4bca754-6fb3-1900-9b71-8d44764619a7\",\n  \"acquirer_identifier\": {\n    \"uuid\": \"d0f106f4-8fc7-b94d-e3df-86c1ed89b197\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"acquiree_identifier\": {\n    \"uuid\": \"2b883948-9002-9f48-21b4-3ec57739636c\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"announced_on\": \"2016-01-09\",\n  \"completed_on\": \"2025-08-01\",\n  \"price\": {\n    \"value\": 7610.077778505857,\n    \"currency\": \"USD\",\n    \"value_usd\": 3716.629011976167\n  },\n  \"acquisition_type\": \"string\",\n  \"terms\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "905f8c92-bc89-46aa-9456-41cfa8cecf17",
+          "name": "Get IPO",
+          "request": {
+            "name": "Get IPO",
+            "description": {},
+            "url": {
+              "path": [
+                "entities",
+                "ipos",
+                ":entity_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_id",
+                  "description": "(Required) Crunchbase UUID or permalink for the entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e464c18c-bd3f-40ef-a8d2-b3ae570c3777",
+              "name": "IPO entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entities",
+                    "ipos",
+                    ":entity_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_id",
+                      "description": "(Required) Crunchbase UUID or permalink for the entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"8a164791-4713-861f-db17-07ad0bd9c1ec\",\n  \"organization_identifier\": {\n    \"uuid\": \"29dca419-50eb-95c6-3c72-7443d550b3b8\",\n    \"permalink\": \"string\",\n    \"value\": \"string\",\n    \"entity_def_id\": \"string\"\n  },\n  \"went_public_on\": \"1947-02-08\",\n  \"stock_symbol\": \"string\",\n  \"stock_exchange_symbol\": \"string\",\n  \"money_raised\": {\n    \"value\": 424.4737665569465,\n    \"currency\": \"USD\",\n    \"value_usd\": 8804.204737516948\n  },\n  \"share_price\": {\n    \"value\": 426.98380852998264,\n    \"currency\": \"USD\",\n    \"value_usd\": 4584.167282381345\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6b694fd2-cefa-4f96-be96-f48634858596",
+      "name": "Search",
+      "description": {
+        "content": "Full-text and faceted search across entity types.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0be15b0-70e0-43b0-9d2d-e2e225103f00",
+          "name": "Search organizations",
+          "request": {
+            "name": "Search organizations",
+            "description": {},
+            "url": {
+              "path": [
+                "searches",
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d682e404-de4a-4a6a-8b70-f113d38a6aa6",
+              "name": "Paged search result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "searches",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8454,\n  \"entities\": [\n    {\n      \"uuid\": \"abcd7d53-76b2-00ec-96f9-e7ffc13a0fa2\",\n      \"properties\": {\n        \"key_0\": 7951,\n        \"key_1\": false,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"uuid\": \"2c9802fb-c673-ee7b-6906-03972ba95d7b\",\n      \"properties\": {\n        \"key_0\": 489\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50f4b34f-a52e-41c4-a5b0-69db2594a0fc",
+          "name": "Search people",
+          "request": {
+            "name": "Search people",
+            "description": {},
+            "url": {
+              "path": [
+                "searches",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b533cc51-53f2-4bc9-8863-a94f15d95414",
+              "name": "Paged search result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "searches",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8002,\n  \"entities\": [\n    {\n      \"uuid\": \"8cbd02ab-4a1f-30ca-b710-2e62fdecef63\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2477\n      }\n    },\n    {\n      \"uuid\": \"0bf6abb9-225b-b168-1f3c-94d6dbbe86ce\",\n      \"properties\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a926f12a-5929-48f7-905d-80c896b020a0",
+          "name": "Search funding rounds",
+          "request": {
+            "name": "Search funding rounds",
+            "description": {},
+            "url": {
+              "path": [
+                "searches",
+                "funding_rounds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "513312d7-4f96-43e4-8993-a6554f7596f3",
+              "name": "Paged search result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "searches",
+                    "funding_rounds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"<string>\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8002,\n  \"entities\": [\n    {\n      \"uuid\": \"8cbd02ab-4a1f-30ca-b710-2e62fdecef63\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2477\n      }\n    },\n    {\n      \"uuid\": \"0bf6abb9-225b-b168-1f3c-94d6dbbe86ce\",\n      \"properties\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e5537d40-ada9-42a1-b148-9da57ada0bed",
+      "name": "Autocomplete",
+      "description": {
+        "content": "Type-ahead suggestions for entities.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9b3ff0e-570b-4e17-8380-5030257d79f2",
+          "name": "Autocomplete entities",
+          "request": {
+            "name": "Autocomplete entities",
+            "description": {},
+            "url": {
+              "path": [
+                "autocompletes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collection_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated entity collections (organizations, people, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86205b29-a275-494c-8c5c-31253f6b8a71",
+              "name": "Autocomplete suggestions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autocompletes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"identifier\": {\n        \"uuid\": \"76f41f59-e2b5-ea7f-24a5-8550a4552c07\",\n        \"permalink\": \"string\",\n        \"value\": \"string\",\n        \"entity_def_id\": \"string\"\n      },\n      \"short_description\": \"string\"\n    },\n    {\n      \"identifier\": {\n        \"uuid\": \"656d5979-5eda-0b7d-ab72-cd96d56ce1e2\",\n        \"permalink\": \"string\",\n        \"value\": \"string\",\n        \"entity_def_id\": \"string\"\n      },\n      \"short_description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b36f59ea-2860-4fe7-89a2-a94fb9d2aa8c",
+      "name": "Deletes",
+      "description": {
+        "content": "Feeds of deleted entities for downstream sync.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34520ec3-f048-4de4-a74f-4652ee0b2b1f",
+          "name": "List deleted entities",
+          "request": {
+            "name": "List deleted entities",
+            "description": {},
+            "url": {
+              "path": [
+                "deletes",
+                ":collection_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eef968cc-1721-439b-bdf9-de7df2d547f9",
+              "name": "Deleted entity feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deletes",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"uuid\": \"4a08b333-f777-325b-a536-21a8b9c812d2\",\n      \"deleted_at\": \"2010-04-24T14:12:26.775Z\"\n    },\n    {\n      \"uuid\": \"e92ec5c5-719f-8bef-7f33-1b370ea7939e\",\n      \"deleted_at\": \"1961-10-03T01:03:20.787Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.crunchbase.com/api/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-cb-user-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3fad85df-8223-4ed7-94ab-cb05d1e713e4",
+    "name": "Crunchbase API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.\n\nContact Support:\n Name: Crunchbase Data",
+      "type": "text/plain"
+    }
+  }
+}

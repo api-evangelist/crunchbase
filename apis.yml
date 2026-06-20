@@ -6,7 +6,7 @@ description: >-
   Crunchbase is a business data platform tracking companies, investors, funding rounds, acquisitions, and IPOs across
   the global startup and private market ecosystem. Its REST API (v4) provides programmatic access to over 600 endpoints
   powering customer-facing products, workflow enrichment, and AI training data.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Business Data
   - Funding
@@ -26,7 +26,7 @@ apis:
       The Crunchbase v4 REST API provides programmatic access to Crunchbase's business data covering organizations,
       people, investors, funding rounds, acquisitions, and IPOs. Supports entity lookups, structured search,
       autocomplete, and deleted entity feeds. Authentication is by API key (X-cb-user-key header).
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.crunchbase.com/api/v4
     humanURL: https://data.crunchbase.com/docs
     tags:

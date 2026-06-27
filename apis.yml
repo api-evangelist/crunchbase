@@ -89,7 +89,7 @@ common:
     type: Documentation
   - url: https://www.crunchbase.com/register
     name: Sign Up
-    type: SignUp
+    type: Signup
   - url: https://www.crunchbase.com/login
     name: Login
     type: Login

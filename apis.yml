@@ -81,6 +81,12 @@ useCases:
   - name: Customer-Facing Products
     description: SaaS products embed Crunchbase data into dashboards, lead lists, and signals.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/crunchbase-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/crunchbase-domain-security.yml
+  - type: Authentication
+    url: authentication/crunchbase-authentication.yml
   - url: https://www.crunchbase.com/
     name: Crunchbase Website
     type: Website

@@ -3,12 +3,10 @@
   "feeds": [
     {
       "source": "https://www.crunchbase.com/blog",
-      "feed_url": "",
-      "saved": 10,
-      "method": "agent-scrape"
+      "error": "HTTPError"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-06-27T12:34:49Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }

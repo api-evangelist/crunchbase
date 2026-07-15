@@ -81,6 +81,8 @@ useCases:
   - name: Customer-Facing Products
     description: SaaS products embed Crunchbase data into dashboards, lead lists, and signals.
 common:
+  - type: AgenticAccess
+    url: agentic-access/crunchbase-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/crunchbase-vulnerability-disclosure.yml
   - type: DomainSecurity

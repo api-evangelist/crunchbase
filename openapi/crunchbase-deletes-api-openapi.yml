@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Crunchbase Autocomplete Deletes API
+  description: The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.
+  version: '4.0'
+  contact:
+    name: Crunchbase Data
+    url: https://data.crunchbase.com/docs
+servers:
+- url: https://api.crunchbase.com/api/v4
+  description: Crunchbase v4 production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Deletes
+  description: Feeds of deleted entities for downstream sync.
+paths:
+  /deletes/{collection_id}:
+    get:
+      tags:
+      - Deletes
+      summary: List deleted entities
+      operationId: listDeletes
+      parameters:
+      - in: path
+        name: collection_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: after_id
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 100
+          maximum: 2000
+      responses:
+        '200':
+          description: Deleted entity feed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletesResult'
+components:
+  schemas:
+    DeletesResult:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid:
+                type: string
+                format: uuid
+              deleted_at:
+                type: string
+                format: date-time
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-cb-user-key
+      description: Crunchbase user API key.

@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Crunchbase Autocomplete API
+  description: The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.
+  version: '4.0'
+  contact:
+    name: Crunchbase Data
+    url: https://data.crunchbase.com/docs
+servers:
+- url: https://api.crunchbase.com/api/v4
+  description: Crunchbase v4 production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Autocomplete
+  description: Type-ahead suggestions for entities.
+paths:
+  /autocompletes:
+    get:
+      tags:
+      - Autocomplete
+      summary: Autocomplete entities
+      operationId: autocomplete
+      parameters:
+      - in: query
+        name: query
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: collection_ids
+        description: Comma-separated entity collections (organizations, people, etc.)
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 10
+          maximum: 25
+      responses:
+        '200':
+          description: Autocomplete suggestions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutocompleteResult'
+components:
+  schemas:
+    EntityIdentifier:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        permalink:
+          type: string
+        value:
+          type: string
+        entity_def_id:
+          type: string
+    AutocompleteResult:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              identifier:
+                $ref: '#/components/schemas/EntityIdentifier'
+              short_description:
+                type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-cb-user-key
+      description: Crunchbase user API key.

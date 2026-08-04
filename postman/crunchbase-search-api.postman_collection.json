@@ -1,0 +1,382 @@
+{
+  "info": {
+    "_postman_id": "807512f1-b870-4569-8e37-812838a9d603",
+    "name": "Crunchbase Autocomplete Search API",
+    "description": "The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.\n\nContact Support:\n Name: Crunchbase Data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:27:22.000Z",
+    "updatedAt": "2026-07-28T01:27:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-807512f1-b870-4569-8e37-812838a9d603"
+  },
+  "item": [
+    {
+      "name": "searches",
+      "item": [
+        {
+          "name": "organizations",
+          "item": [
+            {
+              "name": "Search organizations",
+              "id": "14b0f1c5-4464-4998-9bb1-b200da8dd9e5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/searches/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "searches",
+                    "organizations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e4d91e10-52dd-43ba-b1b0-148118fcf23e",
+                  "name": "Paged search result",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-cb-user-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/searches/organizations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "searches",
+                        "organizations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"entities\": [\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"in0e5\": \"eu laboris\"\n      }\n    },\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"fugiat_\": -26328321.405541554\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:27:22.000Z",
+                  "updatedAt": "2026-07-28T01:27:22.000Z",
+                  "uid": "35240-e4d91e10-52dd-43ba-b1b0-148118fcf23e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:27:22.000Z",
+              "updatedAt": "2026-07-28T01:27:22.000Z",
+              "uid": "35240-14b0f1c5-4464-4998-9bb1-b200da8dd9e5"
+            }
+          ],
+          "id": "9d90a709-17e1-42fc-a0c6-dbae9a88abd5",
+          "createdAt": "2026-07-28T01:27:22.000Z",
+          "updatedAt": "2026-07-28T01:27:22.000Z",
+          "uid": "35240-9d90a709-17e1-42fc-a0c6-dbae9a88abd5"
+        },
+        {
+          "name": "people",
+          "item": [
+            {
+              "name": "Search people",
+              "id": "02507597-23ce-4ccb-8dc8-fae94c3d70dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/searches/people",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "searches",
+                    "people"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "81f4f52d-0c6d-4aad-b859-6ed01c3b0c3a",
+                  "name": "Paged search result",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-cb-user-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/searches/people",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "searches",
+                        "people"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"entities\": [\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"in0e5\": \"eu laboris\"\n      }\n    },\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"fugiat_\": -26328321.405541554\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:27:22.000Z",
+                  "updatedAt": "2026-07-28T01:27:22.000Z",
+                  "uid": "35240-81f4f52d-0c6d-4aad-b859-6ed01c3b0c3a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:27:22.000Z",
+              "updatedAt": "2026-07-28T01:27:22.000Z",
+              "uid": "35240-02507597-23ce-4ccb-8dc8-fae94c3d70dc"
+            }
+          ],
+          "id": "c9985aee-7623-4978-9bc7-646553a0c93e",
+          "createdAt": "2026-07-28T01:27:22.000Z",
+          "updatedAt": "2026-07-28T01:27:22.000Z",
+          "uid": "35240-c9985aee-7623-4978-9bc7-646553a0c93e"
+        },
+        {
+          "name": "funding_rounds",
+          "item": [
+            {
+              "name": "Search funding rounds",
+              "id": "38d7b1b4-f51a-4484-9f5a-be69190e6dd2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/searches/funding_rounds",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "searches",
+                    "funding_rounds"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c07ce91d-4899-487e-9794-6182e0536209",
+                  "name": "Paged search result",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-cb-user-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"field_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"query\": [\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"field_id\": \"<string>\",\n      \"operator_id\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"order\": [\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"desc\"\n    },\n    {\n      \"field_id\": \"<string>\",\n      \"sort\": \"asc\"\n    }\n  ],\n  \"limit\": 50,\n  \"after_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/searches/funding_rounds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "searches",
+                        "funding_rounds"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"entities\": [\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"in0e5\": \"eu laboris\"\n      }\n    },\n    {\n      \"uuid\": \"<uuid>\",\n      \"properties\": {\n        \"fugiat_\": -26328321.405541554\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:27:22.000Z",
+                  "updatedAt": "2026-07-28T01:27:22.000Z",
+                  "uid": "35240-c07ce91d-4899-487e-9794-6182e0536209"
+                }
+              ],
+              "createdAt": "2026-07-28T01:27:22.000Z",
+              "updatedAt": "2026-07-28T01:27:22.000Z",
+              "uid": "35240-38d7b1b4-f51a-4484-9f5a-be69190e6dd2"
+            }
+          ],
+          "id": "7e759f60-2121-42cd-a60c-864c37bf3449",
+          "createdAt": "2026-07-28T01:27:22.000Z",
+          "updatedAt": "2026-07-28T01:27:22.000Z",
+          "uid": "35240-7e759f60-2121-42cd-a60c-864c37bf3449"
+        }
+      ],
+      "id": "d76e40cd-bc1c-41f9-b7f2-7e5973b3a3a3",
+      "createdAt": "2026-07-28T01:27:22.000Z",
+      "updatedAt": "2026-07-28T01:27:22.000Z",
+      "uid": "35240-d76e40cd-bc1c-41f9-b7f2-7e5973b3a3a3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-cb-user-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.crunchbase.com/api/v4"
+    }
+  ]
+}

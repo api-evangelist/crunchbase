@@ -1,0 +1,389 @@
+openapi: 3.0.3
+info:
+  title: Crunchbase API
+  description: >-
+    The Crunchbase REST API (v4) provides programmatic access to Crunchbase's
+    business data platform covering organizations, people, funding rounds,
+    acquisitions, and IPOs. The API exposes entity lookups, search,
+    autocomplete, and deleted entity feeds. Authentication is by API key.
+  version: '4.0'
+  contact:
+    name: Crunchbase Data
+    url: https://data.crunchbase.com/docs
+servers:
+  - url: https://api.crunchbase.com/api/v4
+    description: Crunchbase v4 production API
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Entities
+    description: Entity lookup endpoints for organizations, people, funding rounds, acquisitions, and IPOs.
+  - name: Search
+    description: Full-text and faceted search across entity types.
+  - name: Autocomplete
+    description: Type-ahead suggestions for entities.
+  - name: Deletes
+    description: Feeds of deleted entities for downstream sync.
+paths:
+  /entities/organizations/{entity_id}:
+    get:
+      tags: [Entities]
+      summary: Get organization
+      description: Retrieve an organization (company, investor, school) by Crunchbase UUID or permalink.
+      operationId: getOrganization
+      parameters:
+        - $ref: '#/components/parameters/EntityId'
+        - $ref: '#/components/parameters/FieldIds'
+        - $ref: '#/components/parameters/CardIds'
+      responses:
+        '200':
+          description: Organization entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /entities/people/{entity_id}:
+    get:
+      tags: [Entities]
+      summary: Get person
+      description: Retrieve a person entity by Crunchbase UUID or permalink.
+      operationId: getPerson
+      parameters:
+        - $ref: '#/components/parameters/EntityId'
+        - $ref: '#/components/parameters/FieldIds'
+        - $ref: '#/components/parameters/CardIds'
+      responses:
+        '200':
+          description: Person entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+  /entities/funding_rounds/{entity_id}:
+    get:
+      tags: [Entities]
+      summary: Get funding round
+      operationId: getFundingRound
+      parameters:
+        - $ref: '#/components/parameters/EntityId'
+        - $ref: '#/components/parameters/FieldIds'
+      responses:
+        '200':
+          description: Funding round entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundingRound'
+  /entities/acquisitions/{entity_id}:
+    get:
+      tags: [Entities]
+      summary: Get acquisition
+      operationId: getAcquisition
+      parameters:
+        - $ref: '#/components/parameters/EntityId'
+      responses:
+        '200':
+          description: Acquisition entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Acquisition'
+  /entities/ipos/{entity_id}:
+    get:
+      tags: [Entities]
+      summary: Get IPO
+      operationId: getIpo
+      parameters:
+        - $ref: '#/components/parameters/EntityId'
+      responses:
+        '200':
+          description: IPO entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ipo'
+  /searches/organizations:
+    post:
+      tags: [Search]
+      summary: Search organizations
+      operationId: searchOrganizations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchQuery'
+      responses:
+        '200':
+          description: Paged search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /searches/people:
+    post:
+      tags: [Search]
+      summary: Search people
+      operationId: searchPeople
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchQuery'
+      responses:
+        '200':
+          description: Paged search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /searches/funding_rounds:
+    post:
+      tags: [Search]
+      summary: Search funding rounds
+      operationId: searchFundingRounds
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchQuery'
+      responses:
+        '200':
+          description: Paged search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /autocompletes:
+    get:
+      tags: [Autocomplete]
+      summary: Autocomplete entities
+      operationId: autocomplete
+      parameters:
+        - in: query
+          name: query
+          required: true
+          schema: {type: string}
+        - in: query
+          name: collection_ids
+          description: Comma-separated entity collections (organizations, people, etc.)
+          schema: {type: string}
+        - in: query
+          name: limit
+          schema: {type: integer, default: 10, maximum: 25}
+      responses:
+        '200':
+          description: Autocomplete suggestions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutocompleteResult'
+  /deletes/{collection_id}:
+    get:
+      tags: [Deletes]
+      summary: List deleted entities
+      operationId: listDeletes
+      parameters:
+        - in: path
+          name: collection_id
+          required: true
+          schema: {type: string}
+        - in: query
+          name: after_id
+          schema: {type: string}
+        - in: query
+          name: limit
+          schema: {type: integer, default: 100, maximum: 2000}
+      responses:
+        '200':
+          description: Deleted entity feed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletesResult'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-cb-user-key
+      description: Crunchbase user API key.
+  parameters:
+    EntityId:
+      in: path
+      name: entity_id
+      required: true
+      schema: {type: string}
+      description: Crunchbase UUID or permalink for the entity.
+    FieldIds:
+      in: query
+      name: field_ids
+      schema: {type: string}
+      description: Comma-separated list of field identifiers to include in the response.
+    CardIds:
+      in: query
+      name: card_ids
+      schema: {type: string}
+      description: Comma-separated list of related card identifiers (e.g. founders, investments).
+  responses:
+    NotFound:
+      description: Entity not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Organization:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        name: {type: string}
+        short_description: {type: string}
+        website_url: {type: string, format: uri}
+        founded_on: {type: string, format: date}
+        location_identifiers:
+          type: array
+          items: {$ref: '#/components/schemas/EntityIdentifier'}
+        category_groups:
+          type: array
+          items: {type: string}
+        funding_total:
+          $ref: '#/components/schemas/MoneyAmount'
+        last_funding_type: {type: string}
+        num_employees_enum: {type: string}
+        ipo_status: {type: string, enum: [private, public, delisted, was_acquired]}
+    Person:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        first_name: {type: string}
+        last_name: {type: string}
+        primary_organization:
+          $ref: '#/components/schemas/EntityIdentifier'
+        primary_job_title: {type: string}
+    FundingRound:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        funded_organization_identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        investment_type: {type: string, example: series_a}
+        announced_on: {type: string, format: date}
+        money_raised:
+          $ref: '#/components/schemas/MoneyAmount'
+        num_investors: {type: integer}
+        lead_investor_identifiers:
+          type: array
+          items: {$ref: '#/components/schemas/EntityIdentifier'}
+    Acquisition:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        acquirer_identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        acquiree_identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        announced_on: {type: string, format: date}
+        completed_on: {type: string, format: date}
+        price:
+          $ref: '#/components/schemas/MoneyAmount'
+        acquisition_type: {type: string}
+        terms: {type: string}
+    Ipo:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        organization_identifier:
+          $ref: '#/components/schemas/EntityIdentifier'
+        went_public_on: {type: string, format: date}
+        stock_symbol: {type: string}
+        stock_exchange_symbol: {type: string}
+        money_raised:
+          $ref: '#/components/schemas/MoneyAmount'
+        share_price:
+          $ref: '#/components/schemas/MoneyAmount'
+    EntityIdentifier:
+      type: object
+      properties:
+        uuid: {type: string, format: uuid}
+        permalink: {type: string}
+        value: {type: string}
+        entity_def_id: {type: string}
+    MoneyAmount:
+      type: object
+      properties:
+        value: {type: number}
+        currency: {type: string, example: USD}
+        value_usd: {type: number}
+    SearchQuery:
+      type: object
+      properties:
+        field_ids:
+          type: array
+          items: {type: string}
+        query:
+          type: array
+          items:
+            type: object
+            properties:
+              type: {type: string}
+              field_id: {type: string}
+              operator_id: {type: string}
+              values:
+                type: array
+                items: {type: string}
+        order:
+          type: array
+          items:
+            type: object
+            properties:
+              field_id: {type: string}
+              sort: {type: string, enum: [asc, desc]}
+        limit: {type: integer, default: 50, maximum: 1000}
+        after_id: {type: string}
+    SearchResult:
+      type: object
+      properties:
+        count: {type: integer}
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid: {type: string, format: uuid}
+              properties: {type: object, additionalProperties: true}
+    AutocompleteResult:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              identifier: {$ref: '#/components/schemas/EntityIdentifier'}
+              short_description: {type: string}
+    DeletesResult:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid: {type: string, format: uuid}
+              deleted_at: {type: string, format: date-time}
+    Error:
+      type: object
+      properties:
+        message: {type: string}
+        code: {type: string}

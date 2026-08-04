@@ -1,0 +1,20 @@
+{
+  "provider": "crunchbase",
+  "sources": [
+    "crunchbase-autocomplete-api-openapi.yml",
+    "crunchbase-deletes-api-openapi.yml",
+    "crunchbase-entities-api-openapi.yml",
+    "crunchbase-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "crunchbase-autocomplete-api-openapi.yml",
+    "crunchbase-deletes-api-openapi.yml",
+    "crunchbase-entities-api-openapi.yml",
+    "crunchbase-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

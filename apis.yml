@@ -211,7 +211,7 @@ common:
   - url: https://github.com/crunchbase
     name: Crunchbase on GitHub
     type: GitHub
-  - url: openapi/crunchbase-openapi.yml
+  - url: openapi/_original/crunchbase-openapi.yml
     type: OpenAPI
   - url: json-schema/crunchbase-organization-schema.json
     type: JSONSchema

@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "33305983-2051-49c2-8f0b-1854aa044203",
+      "name": "Deletes",
+      "description": {
+        "content": "Feeds of deleted entities for downstream sync.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "767d8da5-23e7-4db6-8990-59f647b07c2f",
+          "name": "List deleted entities",
+          "request": {
+            "name": "List deleted entities",
+            "description": {},
+            "url": {
+              "path": [
+                "deletes",
+                ":collection_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd905936-2537-4485-9c39-012eecb5c7c7",
+              "name": "Deleted entity feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deletes",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"uuid\": \"2632d0f0-c2fa-7ff2-7e70-9d27daeffffe\",\n      \"deleted_at\": \"1965-06-09T22:05:36.003Z\"\n    },\n    {\n      \"uuid\": \"b22a7c59-8d3b-b311-882e-49c94cd84ade\",\n      \"deleted_at\": \"1979-09-01T00:23:50.530Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.crunchbase.com/api/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-cb-user-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6704fb98-8082-4d58-afe6-42b476301a9a",
+    "name": "Crunchbase Autocomplete Deletes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.\n\nContact Support:\n Name: Crunchbase Data",
+      "type": "text/plain"
+    }
+  }
+}

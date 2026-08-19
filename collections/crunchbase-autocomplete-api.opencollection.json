@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Crunchbase Autocomplete API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-cb-user-key",
+      "value": "{{X-cb-user-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Autocomplete",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autocomplete entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.crunchbase.com/api/v4/autocompletes",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collection_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated entity collections (organizations, people, etc.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Autocomplete entities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

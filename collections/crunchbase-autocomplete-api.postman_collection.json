@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "87d15026-e086-4958-ba4c-27d90b919ac1",
+      "name": "Autocomplete",
+      "description": {
+        "content": "Type-ahead suggestions for entities.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "233c5228-250a-43c2-bf1b-75ded16aa619",
+          "name": "Autocomplete entities",
+          "request": {
+            "name": "Autocomplete entities",
+            "description": {},
+            "url": {
+              "path": [
+                "autocompletes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collection_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated entity collections (organizations, people, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da5b197c-f897-4c40-bbad-77c1b67de553",
+              "name": "Autocomplete suggestions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autocompletes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-cb-user-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"identifier\": {\n        \"uuid\": \"08ace6d9-bf19-92ba-4bd9-37bd3a036ca1\",\n        \"permalink\": \"string\",\n        \"value\": \"string\",\n        \"entity_def_id\": \"string\"\n      },\n      \"short_description\": \"string\"\n    },\n    {\n      \"identifier\": {\n        \"uuid\": \"eb8c19c2-a286-baf7-9403-342f38677df6\",\n        \"permalink\": \"string\",\n        \"value\": \"string\",\n        \"entity_def_id\": \"string\"\n      },\n      \"short_description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.crunchbase.com/api/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-cb-user-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6aedf1d7-50e3-45cb-a868-73b9f1e3b3be",
+    "name": "Crunchbase Autocomplete API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Crunchbase REST API (v4) provides programmatic access to Crunchbase's business data platform covering organizations, people, funding rounds, acquisitions, and IPOs. The API exposes entity lookups, search, autocomplete, and deleted entity feeds. Authentication is by API key.\n\nContact Support:\n Name: Crunchbase Data",
+      "type": "text/plain"
+    }
+  }
+}

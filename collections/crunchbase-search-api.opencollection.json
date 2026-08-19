@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Crunchbase Autocomplete Search API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-cb-user-key",
+      "value": "{{X-cb-user-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/organizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search organizations"
+        },
+        {
+          "info": {
+            "name": "Search people",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/people",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search people"
+        },
+        {
+          "info": {
+            "name": "Search funding rounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.crunchbase.com/api/v4/searches/funding_rounds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search funding rounds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

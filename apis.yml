@@ -60,7 +60,8 @@ apis:
   description: Feeds of deleted entities for downstream sync.
   humanURL: https://data.crunchbase.com/docs
   baseURL: https://api.crunchbase.com/api/v4
-  tags:
+  tags: []
+  tags_raw:
   - Deletes
   properties:
   - type: OpenAPI

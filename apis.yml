@@ -6,6 +6,18 @@ description: >-
   Crunchbase is a business data platform tracking companies, investors, funding rounds, acquisitions, and IPOs across
   the global startup and private market ecosystem. Its REST API (v4) provides programmatic access to over 600 endpoints
   powering customer-facing products, workflow enrichment, and AI training data.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
